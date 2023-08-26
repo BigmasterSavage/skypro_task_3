@@ -25,7 +25,7 @@ def parsing_transactions(path, count: int, state: str):
 def output(transactions):
     """
     :param transactions: вносим результаты парсинга
-    :return: получаем читаемый вывод
+    :return: получаем читаемый вывод для каждой операции и сливаем их в список
     """
     out = []
     for i in range(len(transactions)):
@@ -33,7 +33,8 @@ def output(transactions):
         description = transactions[i].get('description')
         card_from_name = str(transactions[i].get('from')).split(" ")
         if "None" in card_from_name:
-            card_from_number = "Взнос на счет"
+            card_from_name.insert(0, "NONE")
+            card_from_number = "Открытие вклада"
         else:
             card_from_number = (f"{card_from_name[-1][:4]} {card_from_name[-1][4:6]}** **** "
                                 f"{card_from_name[-1][-4:]}")
@@ -49,4 +50,3 @@ def output(transactions):
 """
         out.append(print_info)
     return out
-
