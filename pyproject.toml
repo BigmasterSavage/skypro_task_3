@@ -5,6 +5,7 @@ description = ""
 authors = ["savva.net <savva.net@icloud.com>"]
 readme = "README.md"
 packages = [{include = "course_work_3"}]
+repository = "https://github.com/BigmasterSavage/skypro_task_3/tree/main"
 
 [tool.poetry.dependencies]
 python = "^3.11"
